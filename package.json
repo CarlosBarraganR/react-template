@@ -9,7 +9,9 @@
     "prepare": "husky install",
     "eslint": "eslint",
     "tsc": "tsc",
-    "prettify": "prettier --write ."
+    "prettify": "prettier --write .",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run"
   },
   "dependencies": {
     "@babel/core": "7.12.3",
@@ -83,6 +85,8 @@
     "workbox-webpack-plugin": "5.1.4"
   },
   "devDependencies": {
+    "cypress": "^7.6.0",
+    "eslint-plugin-cypress": "^2.11.3",
     "husky": "^6.0.0",
     "prettier": "2.3.2"
   },
