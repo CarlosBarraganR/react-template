@@ -35,3 +35,6 @@ jobs:
         with:
           test-command: 'yarn test --coverage'
           coverage-comment: ${{ github.event_name == 'pull_request' }}
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
