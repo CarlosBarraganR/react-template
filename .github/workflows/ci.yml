@@ -33,4 +33,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
+          test-command: 'yarn test --coverage'
           coverage-comment: ${{ github.event_name == 'pull_request' }}
