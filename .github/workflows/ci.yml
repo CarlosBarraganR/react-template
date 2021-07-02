@@ -33,4 +33,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          test-command: CI:true yarn test
+          test-command: CI=true yarn test --coverage --json --outputFile=jest.results.json
