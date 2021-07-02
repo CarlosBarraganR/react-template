@@ -28,5 +28,7 @@ jobs:
       - name: Verify Eslint
         run: yarn eslint
 
-      - name: Unit Testing
-        run: CI=true yarn test --coverage
+      - name: Jest Testing
+        uses: mattallty/jest-github-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
