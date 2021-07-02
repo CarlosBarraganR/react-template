@@ -28,9 +28,5 @@ jobs:
       - name: Verify Eslint
         run: yarn eslint
 
-      - name: Jest Testing
-        uses: mattallty/jest-github-action@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          test-command: CI=true yarn jest --coverage --json --outputFile=/home/runner/work/_actions/mattallty/jest-github-action/v1/dist/jest.results.json
+      - name: Unit Testing
+        run: yarn test --ci --coverage
