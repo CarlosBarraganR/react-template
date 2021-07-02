@@ -33,5 +33,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          if: ${{ github.event_name == 'pull_request' }}
-          coverage-comment: true
+          coverage-comment: ${{ github.event_name == 'pull_request' }}
