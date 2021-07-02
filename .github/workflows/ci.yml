@@ -33,5 +33,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          # To avoid reporting code coverage, set this variable to false
-          coverage-comment: false
+          if: ${{ github.event_name == 'pull_request' }}
+          coverage-comment: true
