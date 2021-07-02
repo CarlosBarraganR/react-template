@@ -22,5 +22,11 @@ jobs:
         with:
           install-command: yarn --frozen-lockfile
 
-      - name: Typescript
+      - name: Verify Typescript
         run: yarn tsc
+
+      - name: Verify Eslint
+        run: yarn eslint
+
+      - name: Unit Testing
+        run: CI=true yarn test --coverage
