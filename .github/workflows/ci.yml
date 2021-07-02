@@ -18,9 +18,7 @@ jobs:
           node-version: 14
 
       - name: Install yarn dependencies
-        uses: bahmutov/npm-install@v1
-        with:
-          install-command: yarn --frozen-lockfile
+        run: yarn
 
       - name: Verify Typescript
         run: yarn tsc
