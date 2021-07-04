@@ -1,0 +1,43 @@
+name: React Typescript Template CI Pipe
+on:
+  pull_request:
+    branches: [main, dev]
+  push:
+    branches-ignore: ['**']
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - name: Install yarn dependencies
+        uses: bahmutov/npm-install@v1
+        with:
+          install-command: yarn --frozen-lockfile
+
+      - name: Verify Typescript
+        run: yarn tsc
+
+      - name: Verify Eslint
+        run: yarn eslint
+
+      - name: Unit Testing
+        uses: mattallty/jest-github-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          test-command: 'yarn test --coverage'
+          coverage-comment: ${{ github.event_name == 'pull_request' }}
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
+        with:
+          install: false
+          start: yarn start
