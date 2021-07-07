@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "prestart": "postcss src/index.css -o src/tailwind.css",
     "start": "node scripts/start.js",
+    "prebuild": "postcss src/index.css -o src/tailwind.css",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
     "prepare": "husky install",
@@ -85,10 +87,14 @@
     "workbox-webpack-plugin": "5.1.4"
   },
   "devDependencies": {
+    "autoprefixer": "^10.2.6",
     "cypress": "^7.6.0",
     "eslint-plugin-cypress": "^2.11.3",
     "husky": "^6.0.0",
-    "prettier": "2.3.2"
+    "postcss": "^8.3.5",
+    "postcss-cli": "^8.3.1",
+    "prettier": "2.3.2",
+    "tailwindcss": "^2.2.4"
   },
   "browserslist": {
     "production": [
