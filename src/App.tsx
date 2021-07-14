@@ -4,7 +4,7 @@ import { theme } from './styles/defaultTheme';
 import { GlobalStyle } from './styles/globalStyle';
 
 const AppComponent = styled.div`
-  background-color: ${props => props.theme.colors.main};
+  background-color: ${({ theme }) => theme.colors.main};
   height: 100vh;
   width: 100%;
 `;
