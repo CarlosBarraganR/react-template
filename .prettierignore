@@ -2,4 +2,7 @@
 build
 coverage
 
+#Scaffolding plop templates
+scaffold-templates
+
 yarn.lock

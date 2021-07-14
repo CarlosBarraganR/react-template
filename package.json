@@ -11,7 +11,8 @@
     "tsc": "tsc",
     "prettify": "prettier --write .",
     "cy:open": "cypress open",
-    "cy:run": "cypress run"
+    "cy:run": "cypress run",
+    "generate": "plop"
   },
   "dependencies": {
     "@babel/core": "7.12.3",
@@ -92,6 +93,7 @@
     "eslint-plugin-cypress": "^2.11.3",
     "husky": "^6.0.0",
     "jest-styled-components": "^7.0.4",
+    "plop": "^2.7.4",
     "prettier": "2.3.2"
   },
   "browserslist": {
