@@ -1,7 +1,10 @@
 import { render } from '@testing-library/react';
 import { {{pascalCase componentName}} } from '../{{pascalCase componentName}}';
 
-test('{{pascalCase componentName}}', () => {
-  const { getByTestId } = render(<{{pascalCase componentName}} />);
-  expect(getByTestId('{{pascalCase componentName}}')).toBeInTheDocument();
+describe('{{pascalCase componentName}}', () => {
+  test('renders', () => {
+    const { getByTestId } = render(<{{pascalCase componentName}} />);
+    expect(getByTestId('{{pascalCase componentName}}')).toBeInTheDocument();
+  });
 });
+
