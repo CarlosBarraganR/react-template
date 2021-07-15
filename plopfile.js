@@ -79,4 +79,47 @@ module.exports = plop => {
       return actions;
     },
   });
+  plop.setGenerator('page', {
+    description: 'Creates new page',
+    prompts: [
+      {
+        type: 'input',
+        name: 'pageName',
+        message: 'Page Name?* [*PascalCase Required]',
+      },
+    ],
+    actions: function () {
+      return [
+        {
+          type: 'add',
+          path: 'src/pages/{{kebabCase pageName}}/{{pascalCase pageName}}.tsx',
+          templateFile: 'scaffold-templates/Page.js.hbs',
+        },
+        {
+          type: 'add',
+          path: 'src/pages/{{kebabCase pageName}}/test/{{pascalCase pageName}}.test.tsx',
+          templateFile: 'scaffold-templates/Page.test.js.hbs',
+        },
+        // Actions for dynamic index.js at /component level
+        {
+          type: 'add',
+          path: 'src/pages/index.js',
+          templateFile: 'scaffold-templates/injectable-index.js.hbs',
+          skipIfExists: true,
+        },
+        {
+          type: 'append',
+          path: 'src/pages/index.js',
+          pattern: `/* PLOP_INJECT_IMPORT */`,
+          template: `import { {{pascalCase pageName}} } from './{{kebabCase pageName}}/{{pascalCase pageName}}';`,
+        },
+        {
+          type: 'append',
+          path: 'src/pages/index.js',
+          pattern: `/* PLOP_INJECT_EXPORT */`,
+          template: `\t{{pascalCase pageName}},`,
+        },
+      ];
+    },
+  });
 };
