@@ -1,0 +1,10 @@
+import { render } from '@testing-library/react';
+import { {{pascalCase pageName}} } from '../{{pascalCase pageName}}';
+
+describe('{{pascalCase pageName}}', () => {
+  test('renders', () => {
+    const { getByTestId } = render(<{{pascalCase pageName}} />);
+    expect(getByTestId('{{pascalCase pageName}}')).toBeInTheDocument();
+  });
+})
+
